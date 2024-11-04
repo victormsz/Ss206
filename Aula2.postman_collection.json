@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "9f391639-a8d8-483a-9693-34cdf3f4fe98",
+		"name": "Aula2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39462956"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "localiza pokemon com sucesso",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"flame-body\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/moltres",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"moltres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "nao localiza pokemon(404)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pokemon/molquatro",
+							"host": [
+								"{{url}}pokemon"
+							],
+							"path": [
+								"molquatro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "endpoint falho localiza pokemon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pokebom/pikachu",
+							"host": [
+								"{{url}}pokebom"
+							],
+							"path": [
+								"pikachu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
