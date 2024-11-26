@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "3d52da39-3a39-465c-823f-df7c53a7d393",
+		"name": "Lista API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39462956"
+	},
+	"item": [
+		{
+			"name": "Character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify character name in response\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property('amiibo').that.is.an('array');\r",
+							"\r",
+							"    pm.expect(jsonData.amiibo.length).to.be.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}amiibo/?character=mewtwo",
+					"host": [
+						"{{URL}}amiibo"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "character",
+							"value": "mewtwo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "characterUPPERCASE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify character name in response\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property('amiibo').that.is.an('array');\r",
+							"\r",
+							"    pm.expect(jsonData.amiibo.length).to.be.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}amiibo/?character=MEWTWO",
+					"host": [
+						"{{URL}}amiibo"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "character",
+							"value": "MEWTWO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CharacterNEG",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verifica se tem uma string [] (array vazio)\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"[]\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}amiibo/?character=Tidehunter",
+					"host": [
+						"{{URL}}amiibo"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "character",
+							"value": "Tidehunter"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllAmiibo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify character name in response\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property('amiibo').that.is.an('array');\r",
+							"\r",
+							"    pm.expect(jsonData.amiibo.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"//testar se a resposta está rapida o suficiente, valor pode mudar dependendo do user.\r",
+							"pm.test(\"Response time is less than 1.5s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}amiibo",
+					"host": [
+						"{{URL}}amiibo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BadUrl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}amiiiiiiiiibo",
+					"host": [
+						"{{URL}}amiiiiiiiiibo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Todos os itens têm 'zelda' em 'gameSeries'\", function () {\r",
+							"\r",
+							"  var jsonResponse = pm.response.json().amiibo;\r",
+							"\r",
+							"  jsonResponse.forEach(function(item) {\r",
+							"      pm.expect(item.gameSeries).to.include(\"Zelda\", `O item com nome ${item.name} não contém 'Zelda' em 'gameSeries'`);\r",
+							"  });\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/amiibo/?gameseries=zelda",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"amiibo",
+						""
+					],
+					"query": [
+						{
+							"key": "gameseries",
+							"value": "zelda"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
