@@ -1,3 +1,5 @@
+RESPOSTAS DA SEGUNDA QUESTAO NO FINAL
+
 Endpoints
 
 1. Character (Mewtwo)
@@ -51,3 +53,11 @@ Os resultados dos testes serão exibidos no painel de execução.
 Requisitos
 Postman: Para importar e executar a coleção.
 Ambiente configurado: Defina a variável {{URL}} para que as requisições funcionem corretamente.
+
+
+Respostas da segunda parte:
+1) Os testes são automatizados, pois utilizam scripts no Postman para validar as respostas da API, garantindo que sejam executados de forma repetitiva e sem intervenção manual.
+
+2) Não, os testes não são End-to-End, pois eles verificam apenas respostas específicas da API, como o status e o conteúdo retornado, sem simular fluxos completos de interação do usuário.
+
+3) Para rodar os testes em modo de regressão, é importante garantir que os endpoints da API e os dados esperados permaneçam consistentes, além de manter os testes atualizados para cobrir tanto casos antigos quanto novos.
