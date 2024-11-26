@@ -1,25 +1,26 @@
-Lista API - Postman Collection
-Esta coleção do Postman testa a API de amiibos com foco em personagens específicos, como "Mewtwo", e séries de jogos, como "Zelda". A coleção contém várias requisições para verificar o status da API, validar as respostas e realizar testes de desempenho. A seguir estão os detalhes das requisições e seus respectivos testes.
-
 Endpoints
+
 1. Character (Mewtwo)
 Método: GET
 URL: {{URL}}amiibo/?character=mewtwo
 Testes realizados:
 Status Code 200: Verifica se o código de status da resposta é 200 (OK).
 Verifica nome do personagem na resposta: Confirma que a resposta contém uma propriedade amiibo do tipo array, e que a lista tem ao menos um item.
+
 2. characterUPPERCASE (MEWTWO)
 Método: GET
 URL: {{URL}}amiibo/?character=MEWTWO
 Testes realizados:
 Status Code 200: Verifica se o código de status da resposta é 200 (OK).
 Verifica nome do personagem na resposta: Confirma que a resposta contém uma propriedade amiibo do tipo array, e que a lista tem ao menos um item.
+
 3. CharacterNEG (Tidehunter)
 Método: GET
 URL: {{URL}}amiibo/?character=Tidehunter
 Testes realizados:
 Status Code 200: Verifica se o código de status da resposta é 200 (OK).
 Verifica se a resposta contém um array vazio: Verifica se a resposta contém uma string [], indicando que não há personagens encontrados.
+
 4. AllAmiibo
 Método: GET
 URL: {{URL}}amiibo
@@ -27,23 +28,20 @@ Testes realizados:
 Status Code 200: Verifica se o código de status da resposta é 200 (OK).
 Verifica nome do personagem na resposta: Confirma que a resposta contém uma propriedade amiibo do tipo array, e que a lista tem ao menos um item.
 Tempo de resposta: Verifica se o tempo de resposta da API é inferior a 1,5 segundos.
+
 5. BadUrl
 Método: GET
 URL: {{URL}}amiiiiiiiiibo
 Testes realizados:
 Status Code 404: Verifica se o código de status da resposta é 404 (Not Found), indicando que o endpoint não existe.
+
 6. New Request (Zelda Game Series)
 Método: GET
 URL: {{URL}}amiibo/?gameseries=zelda
 Testes realizados:
 Status Code 200: Verifica se o código de status da resposta é 200 (OK).
 Verifica se todos os itens têm 'zelda' em 'gameSeries': Para cada item da resposta, verifica se o campo gameSeries contém a string "Zelda".
-Como Usar
-Importe a coleção no Postman.
 
-Clique em Import no Postman.
-Selecione o arquivo JSON da coleção ou cole o conteúdo JSON diretamente.
-Defina a variável {{URL}}:
 
 A URL base da API deve ser configurada no Postman como uma variável de ambiente ou global. Defina {{URL}} como o valor da URL base da sua API.
 Execute os testes:
