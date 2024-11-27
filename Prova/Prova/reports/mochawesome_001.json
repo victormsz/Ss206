@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-26T23:33:36.973Z",
+    "end": "2024-11-26T23:33:49.850Z",
+    "duration": 12877,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "996b50e7-601a-4133-a3ca-58a52aec5c71",
+      "title": "",
+      "fullFile": "cypress\\e2e\\signup.cy.js",
+      "file": "cypress\\e2e\\signup.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5953b8c8-99ae-48d4-85db-e7332dd1e572",
+          "title": "Testes de Cadastro e Login - Demoblaze",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Não deve permitir cadastro de usuário já existente",
+              "fullTitle": "Testes de Cadastro e Login - Demoblaze Não deve permitir cadastro de usuário já existente",
+              "timedOut": null,
+              "duration": 2427,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#signin2').click();\ncy.get('#sign-username').should('be.visible').type('newuser');\ncy.get('#sign-password').type('newpassword');\ncy.get('#signInModal .btn-primary').click();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.equal('User already exists');\n});",
+              "err": {},
+              "uuid": "b597a873-5a2f-489c-b635-c917bbc55284",
+              "parentUUID": "5953b8c8-99ae-48d4-85db-e7332dd1e572",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve permitir cadastro de novo usuário",
+              "fullTitle": "Testes de Cadastro e Login - Demoblaze Deve permitir cadastro de novo usuário",
+              "timedOut": null,
+              "duration": 1765,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#signin2').click();\ncy.get('#sign-username').should('be.visible').type(username);\ncy.get('#sign-password').type(password);\ncy.get('#signInModal .btn-primary').click();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.equal('Sign up successful.');\n});",
+              "err": {},
+              "uuid": "731a1a17-1bc2-4e9c-9cf7-d7378d218099",
+              "parentUUID": "5953b8c8-99ae-48d4-85db-e7332dd1e572",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve permitir login com credenciais válidas",
+              "fullTitle": "Testes de Cadastro e Login - Demoblaze Deve permitir login com credenciais válidas",
+              "timedOut": null,
+              "duration": 6690,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login2').click();\ncy.get('#loginusername').type(username);\ncy.get('#loginpassword').type(password);\ncy.get('#logInModal .btn-primary').click();\ncy.get('#nameofuser').should('contain', `Welcome ${username}`);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a#nameofuser.nav-link>' to contain 'Welcome victor123457'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a#nameofuser.nav-link>' to contain 'Welcome victor123457'\n    at Context.eval (webpack:///./cypress/e2e/signup.cy.js:37:26)",
+                "diff": null
+              },
+              "uuid": "e1211c4e-a495-4f7b-a7b4-54a515707734",
+              "parentUUID": "5953b8c8-99ae-48d4-85db-e7332dd1e572",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b597a873-5a2f-489c-b635-c917bbc55284",
+            "731a1a17-1bc2-4e9c-9cf7-d7378d218099"
+          ],
+          "failures": [
+            "e1211c4e-a495-4f7b-a7b4-54a515707734"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10882,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
